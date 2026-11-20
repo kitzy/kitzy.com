@@ -122,6 +122,25 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Antonio:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+<!-- Theme loader: runs before first paint so a saved theme never flashes the default -->
+<script>
+  (function () {
+    var config = {{ site.themes | jsonify }};
+    var themes = {};
+    config.options.forEach(function (t) { themes[t.id] = t; });
+    var id = config.default;
+    try {
+      var saved = localStorage.getItem('kitzy-theme');
+      if (saved && themes[saved]) id = saved;
+    } catch (e) {}
+    window.kitzyThemes = { config: config, byId: themes, current: id };
+    document.documentElement.setAttribute('data-theme', id);
+    var t = themes[id];
+    if (t.fonts) document.write('<link rel="stylesheet" id="theme-fonts" href="' + t.fonts + '">');
+    if (t.stylesheet) document.write('<link rel="stylesheet" id="theme-stylesheet" href="' + t.stylesheet + '">');
+  })();
+</script>
+
 <!-- Privacy-friendly analytics by Plausible -->
 <script async src="https://plausible.io/js/pa-nXIqyRzDA13FDSZ7-xBN0.js"></script>
 <script>

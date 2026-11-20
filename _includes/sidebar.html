@@ -50,6 +50,14 @@
     </div>
 
     <div class="sidebar-footer">
+        <label class="theme-picker">
+            <span class="theme-picker-label">Theme</span>
+            <select id="theme-select" class="theme-select" aria-label="Site theme">
+                {% for theme in site.themes.options %}
+                    <option value="{{ theme.id }}"{% if theme.id == site.themes.default %} selected{% endif %}>{{ theme.name }}</option>
+                {% endfor %}
+            </select>
+        </label>
         <a href="{{ '/content-policy/' | relative_url }}">Content policy</a>
         <a href="{{ '/privacy-policy/' | relative_url }}">Privacy policy</a>
     </div>
