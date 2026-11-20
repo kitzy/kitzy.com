@@ -1,11 +1,163 @@
 [
   {
-    "title": "Manage Fleet during a GitOps outage",
-    "url": "https://fleetdm.com/guides/manage-fleet-during-a-gitops-outage",
+    "title": "Conditional access: Cloudflare",
+    "url": "https://fleetdm.com/guides/cloudflare-conditional-access-integration",
     "category": "guides",
     "source": "Fleet",
-    "published_on": "2026-08-06",
-    "description": "What to do when your CI provider is down and you need to make an urgent change to Fleet outside of GitOps."
+    "published_on": "2026-11-20",
+    "description": "Use Cloudflare One for conditional access, blocking hosts that fail Fleet policies from apps and networks protected by Cloudflare."
+  },
+  {
+    "title": "Measure macOS time-to-patch with Fleet",
+    "url": "https://fleetdm.com/guides/measure-macos-time-to-patch",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-11-06",
+    "description": "Measure how many days your Macs take to install Apple security updates, with a Fleet report and Apple release dates from SOFA."
+  },
+  {
+    "title": "Block Chrome extensions on macOS, Windows, and Linux",
+    "url": "https://fleetdm.com/guides/block-chrome-extensions",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-10-19",
+    "description": "Block, allow, or force-install Chrome extensions on macOS, Windows, and Linux hosts with Fleet using configuration profiles and scripts."
+  },
+  {
+    "title": "Block Microsoft Edge extensions on macOS, Windows, and Linux",
+    "url": "https://fleetdm.com/guides/block-edge-extensions",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-10-19",
+    "description": "Block, allow, or force-install Microsoft Edge extensions on macOS, Windows, and Linux hosts with Fleet using configuration profiles and scripts."
+  },
+  {
+    "title": "Block Firefox extensions on macOS, Windows, and Linux",
+    "url": "https://fleetdm.com/guides/block-firefox-extensions",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-10-19",
+    "description": "Block, allow, or force-install Firefox extensions on macOS, Windows, and Linux hosts with Fleet using configuration profiles and scripts."
+  },
+  {
+    "title": "Block Safari extensions on macOS",
+    "url": "https://fleetdm.com/guides/block-safari-extensions",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-10-19",
+    "description": "Turn off, allow only specific, or restrict Safari extensions on macOS with a custom DDM declaration in Fleet."
+  },
+  {
+    "title": "Deploy Cloudflare One Agent on Android",
+    "url": "https://fleetdm.com/guides/deploy-cloudflare-one-agent-on-android",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-10-13",
+    "description": "Deploy Cloudflare One Agent to fully managed Android devices with Fleet, including per-app VPN, always-on VPN, and Gateway DNS filtering."
+  },
+  {
+    "title": "Use Claude Code with Fleet",
+    "url": "https://fleetdm.com/guides/use-claude-code-with-fleet",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-10-07",
+    "description": "Sign up for Claude Code and use it to generate Fleet policies, reports, and configuration profiles, with or without GitOps."
+  },
+  {
+    "title": "Set up Fleet GitOps for staging and production",
+    "url": "https://fleetdm.com/guides/set-up-gitops-for-staging-and-production",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-08-31",
+    "description": "How to structure your Fleet GitOps repo and secrets to safely test changes in staging before they reach production."
+  },
+  {
+    "title": "Custom disk encryption profiles",
+    "url": "https://fleetdm.com/guides/custom-disk-encryption-profiles",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-08-29",
+    "description": "Upload your own FileVault or BitLocker configuration profile alongside or instead of Fleet's built-in disk encryption enforcement."
+  },
+  {
+    "title": "Set a naming convention for macOS, iOS, and iPadOS hosts",
+    "url": "https://fleetdm.com/guides/set-a-naming-convention-for-macos-ios-and-ipados-hosts",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-08-29",
+    "description": "Use Fleet's host name template to automatically rename macOS, iOS, and iPadOS hosts as they enroll."
+  },
+  {
+    "title": "När AI förändrar jobbet, vem ligger steget före?",
+    "url": "https://fleetdm.com/articles/nar-ai-forandrar-jobbet-vem-ligger-steget-fore",
+    "category": "articles",
+    "source": "Fleet",
+    "published_on": "2026-08-27",
+    "description": "AI raderar inte IT-jobben så mycket som den ritar om vem som är bäst positionerade för att utföra dem."
+  },
+  {
+    "title": "La IA no solo reemplaza empleos, reescribe la descripción del puesto",
+    "url": "https://fleetdm.com/articles/la-ia-reescribe-las-descripciones-de-puestos",
+    "category": "articles",
+    "source": "Fleet",
+    "published_on": "2026-08-20",
+    "description": "La IA no elimina los empleos de IT. Cambia cómo se trabaja, y la brecha que abre atraviesa los equipos de IT. Esto es lo que muestran los datos."
+  },
+  {
+    "title": "Add print support on Android with Fleet",
+    "url": "https://fleetdm.com/guides/deploy-printers-on-android",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-08-17",
+    "description": "Add print support to Android hosts by deploying a print service app like Mopria Print Service."
+  },
+  {
+    "title": "Add AirPrint printers on iOS and iPadOS with Fleet",
+    "url": "https://fleetdm.com/guides/deploy-printers-on-ios-and-ipados",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-08-17",
+    "description": "Add AirPrint-capable printers to iOS and iPadOS hosts with a configuration profile."
+  },
+  {
+    "title": "Deploy printers on Linux with Fleet",
+    "url": "https://fleetdm.com/guides/deploy-printers-on-linux",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-08-17",
+    "description": "Deploy a printer to Linux hosts with a self-service script using CUPS and lpadmin."
+  },
+  {
+    "title": "Deploy printers on macOS with Fleet",
+    "url": "https://fleetdm.com/guides/deploy-printers-on-macos",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-08-17",
+    "description": "Deploy printers to macOS hosts with a self-service script, or install one with a configuration profile."
+  },
+  {
+    "title": "Deploy printers on Windows with Fleet",
+    "url": "https://fleetdm.com/guides/deploy-printers-on-windows",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-08-17",
+    "description": "Deploy a driverless IPP printer to Windows hosts with a self-service script, or install a vendor driver first."
+  },
+  {
+    "title": "Deploy printers with Fleet",
+    "url": "https://fleetdm.com/guides/deploy-printers-with-fleet",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-08-17",
+    "description": "Deploy printers to macOS, Windows, Linux, iOS, iPadOS, and Android hosts using Fleet's existing scripts and configuration profiles."
+  },
+  {
+    "title": "Build and validate configuration profiles with AI instead of a GUI",
+    "url": "https://fleetdm.com/guides/build-configuration-profiles-with-ai",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-08-10",
+    "description": "Describe a profile in a sentence and let an AI agent generate, validate, and ship it through Fleet GitOps on Apple, Windows, and Android."
   },
   {
     "title": "Deploy Visual Studio on Windows with Fleet",
@@ -16,12 +168,28 @@
     "description": "Deploy Visual Studio 2022 on Windows with Fleet. Pin workloads for a fleet, or let developers choose their own."
   },
   {
+    "title": "Manage Fleet during a GitOps outage",
+    "url": "https://fleetdm.com/guides/manage-fleet-during-a-gitops-outage",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-08-06",
+    "description": "What to do when your CI provider is down and you need to make an urgent change to Fleet outside of GitOps."
+  },
+  {
     "title": "AI isn't just replacing jobs, it's rewriting the job description",
     "url": "https://fleetdm.com/articles/ai-rewriting-the-job-description",
     "category": "articles",
     "source": "Fleet",
     "published_on": "2026-06-26",
     "description": "AI isn't eliminating IT jobs. It's changing what IT work looks like, and the divide it's drawing runs through IT teams. Here's what the data shows."
+  },
+  {
+    "title": "L'IA ne remplace pas que des emplois, elle redéfinit les descriptions de poste",
+    "url": "https://fleetdm.com/articles/ia-reecrit-les-descriptions-de-postes",
+    "category": "articles",
+    "source": "Fleet",
+    "published_on": "2026-06-26",
+    "description": null
   },
   {
     "title": "Managed Migration Assistant: Mac-to-Mac migration with Fleet",
@@ -78,6 +246,14 @@
     "source": "Fleet",
     "published_on": "2026-04-17",
     "description": "Device management is about to change. AI is why. GitOps is how."
+  },
+  {
+    "title": "Deploying custom osquery extensions in Fleet: A step-by-step guide",
+    "url": "https://fleetdm.com/guides/deploying-custom-osquery-extensions-in-fleet-a-step-by-step-guide",
+    "category": "guides",
+    "source": "Fleet",
+    "published_on": "2026-03-06",
+    "description": "Learn how to package, test, and deploy a custom osquery extension in Fleet, with the loader and Orbit restart folded into one install."
   },
   {
     "title": "Migrate Fleet server to a new deployment",
