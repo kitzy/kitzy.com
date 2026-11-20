@@ -1,0 +1,571 @@
+/* =========================================================
+   kitzy(1) theme
+   The site as a man page. Layered on top of styles.css (LCARS):
+   it remaps the --lcars-* palette, then flattens the LCARS shapes.
+   Anything new styled with --lcars-* variables picks up this
+   palette automatically.
+   ========================================================= */
+
+:root {
+    color-scheme: light;
+
+    --man-bg: #f7f6f2;
+    --man-panel: #ffffff;
+    --man-panel-alt: #f0eee8;
+    --man-chip: #ebe8e0;
+    --man-border: #dcd8ce;
+    --man-border-strong: #b9b4a8;
+    --man-text: #24272a;
+    --man-muted: #626a71;
+    --man-muted-2: #858b90;
+    --man-green: #0b7650;
+    --man-amber: #94560a;
+    --man-blue: #1f5fae;
+    --man-violet: #6c3fb5;
+    --man-red: #b3261e;
+    --man-red-rgb: 179, 38, 30;
+
+    --font-display: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --font-body: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+    --font-prose: 'Source Serif 4', Georgia, 'Times New Roman', serif;
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        color-scheme: dark;
+
+        --man-bg: #0f1113;
+        --man-panel: #15181b;
+        --man-panel-alt: #1b1f23;
+        --man-chip: #22272c;
+        --man-border: #2b3137;
+        --man-border-strong: #434b53;
+        --man-text: #dcd9d2;
+        --man-muted: #8b939b;
+        --man-muted-2: #6c747b;
+        --man-green: #7fe0b4;
+        --man-amber: #f0b86e;
+        --man-blue: #9fc7ff;
+        --man-violet: #c9a6ff;
+        --man-red: #ff8a80;
+        --man-red-rgb: 255, 138, 128;
+    }
+}
+
+/* Remap the LCARS palette onto the man palette */
+:root {
+    --lcars-black: var(--man-bg);
+    --lcars-panel: var(--man-panel);
+    --lcars-panel-alt: var(--man-panel-alt);
+    --lcars-code-bg: var(--man-chip);
+    --lcars-chip-bg: var(--man-chip);
+    --lcars-border: var(--man-border);
+    --lcars-border-strong: var(--man-border-strong);
+    --lcars-text: var(--man-text);
+    --lcars-muted: var(--man-muted);
+    --lcars-muted-2: var(--man-muted-2);
+    --lcars-heading: var(--man-green);
+    --lcars-orange: var(--man-green);
+    --lcars-gold: var(--man-amber);
+    --lcars-tan: var(--man-chip);
+    --lcars-peach: var(--man-amber);
+    --lcars-lilac: var(--man-violet);
+    --lcars-mauve: var(--man-violet);
+    --lcars-blue: var(--man-blue);
+    --lcars-periwinkle: var(--man-blue);
+    --lcars-red: var(--man-red);
+    --lcars-accent: var(--man-blue);
+    --lcars-accent-alt: var(--man-amber);
+    --lcars-alert: var(--man-red);
+    --lcars-alert-soft: var(--man-red);
+    --lcars-alert-rgb: var(--man-red-rgb);
+}
+
+/* LCARS shouts in uppercase everywhere; man pages only do it for section names.
+   Reset it globally so new components default to sentence case here. */
+body * {
+    text-transform: none !important;
+    letter-spacing: normal !important;
+}
+
+body {
+    font-size: 14px;
+}
+
+/* ---------- Frame ---------- */
+
+.container {
+    max-width: 1120px;
+    gap: 24px;
+}
+
+.sidebar,
+.main-content {
+    border: 1px solid var(--man-border);
+    border-radius: 6px;
+}
+
+.sidebar::before {
+    content: none;
+}
+
+.sidebar {
+    flex-basis: 260px;
+    padding: 20px;
+}
+
+/* ---------- Sidebar ---------- */
+
+.avatar {
+    width: 112px;
+    height: 112px;
+    border: 1px solid var(--man-border-strong);
+}
+
+.name {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--man-text);
+    margin-bottom: 2px;
+}
+
+.pronouns {
+    font-size: 13px;
+}
+
+.social-links::before {
+    content: "SEE ALSO";
+    text-transform: uppercase !important;
+    color: var(--man-green);
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 4px;
+}
+
+.detail-item {
+    background: transparent;
+    border-radius: 0;
+    padding: 2px 0;
+    font-family: var(--font-mono);
+}
+
+.detail-icon.social-icon {
+    fill: var(--man-muted);
+}
+
+.detail-link {
+    color: var(--man-blue);
+    font-weight: 400;
+}
+
+.sidebar-footer,
+.sidebar-languages-section,
+.sidebar-organizations-section {
+    border-top: 1px solid var(--man-border);
+}
+
+.sidebar-section-title {
+    font-size: 13px;
+    color: var(--man-green);
+}
+
+.sidebar-language-tag,
+.sidebar-org-icon {
+    border-radius: 4px;
+}
+
+/* ---------- Theme picker ---------- */
+
+.theme-select {
+    background-color: var(--man-chip);
+    color: var(--man-text);
+    border: 1px solid var(--man-border);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-weight: 500;
+    font-size: 12px;
+    background-image: linear-gradient(45deg, transparent 50%, var(--man-muted) 50%), linear-gradient(135deg, var(--man-muted) 50%, transparent 50%);
+}
+
+.theme-select:hover {
+    filter: none;
+    border-color: var(--man-green);
+}
+
+/* ---------- Navigation ---------- */
+
+.tab-navigation {
+    background: var(--man-panel);
+    border-bottom: 1px solid var(--man-border);
+    padding: 10px 18px;
+    gap: 4px;
+}
+
+.tab-button {
+    background: transparent;
+    color: var(--man-muted);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 400;
+    text-transform: lowercase !important;
+}
+
+.tab-button::before {
+    content: "~/";
+    opacity: 0.6;
+}
+
+.tab-button:hover {
+    filter: none;
+    color: var(--man-text);
+    background: var(--man-panel-alt);
+}
+
+.tab-button.active {
+    box-shadow: none;
+    color: var(--man-green);
+    background: var(--man-chip);
+}
+
+.breadcrumb-nav {
+    background: var(--man-panel);
+    border-bottom: 1px solid var(--man-border);
+    padding: 8px 24px;
+}
+
+.breadcrumb {
+    font-size: 13px;
+}
+
+.breadcrumb::before {
+    content: "$";
+    color: var(--man-green);
+    margin-right: 10px;
+}
+
+.breadcrumb-current {
+    color: var(--man-text);
+}
+
+/* ---------- Content ---------- */
+
+.tab-content {
+    padding: 28px 32px 36px;
+}
+
+.markdown-content h1,
+.markdown-content h2,
+.markdown-content h3,
+.markdown-content h4,
+.markdown-content h5,
+.markdown-content h6 {
+    font-weight: 700;
+}
+
+.markdown-content h1 {
+    font-size: 26px;
+    color: var(--man-text);
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+/* h2 = man page section header: NAME, SYNOPSIS, DESCRIPTION... */
+.markdown-content h2,
+.speaking-section h2 {
+    font-size: 15px;
+    color: var(--man-green);
+    text-transform: uppercase !important;
+    letter-spacing: 0.04em !important;
+    border-bottom: none;
+    padding-bottom: 0;
+    margin-top: 32px;
+}
+
+.markdown-content h3 {
+    font-size: 17px;
+    color: var(--man-amber);
+}
+
+.markdown-content h4 {
+    font-size: 15px;
+    color: var(--man-violet);
+}
+
+/* Reading text stays in a proportional serif; mono is for the chrome */
+.markdown-content p:not(.post-meta),
+.markdown-content li,
+.markdown-content blockquote,
+.markdown-content td,
+.project-description,
+.speaking-description,
+.blog-post-preview > p:not(.post-meta) {
+    font-family: var(--font-prose);
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.blog-post-preview > p:not(.post-meta),
+.project-description,
+.speaking-description {
+    font-size: 15px;
+    line-height: 1.55;
+}
+
+.markdown-content hr {
+    border-top: 1px dashed var(--man-border-strong);
+    border-radius: 0;
+}
+
+.markdown-content a {
+    color: var(--man-blue);
+    text-decoration: underline;
+    text-decoration-color: color-mix(in srgb, var(--man-blue) 35%, transparent);
+    text-underline-offset: 3px;
+}
+
+.markdown-content a:hover {
+    color: var(--man-green);
+    text-decoration-color: currentColor;
+}
+
+.markdown-content li::marker {
+    color: var(--man-muted);
+}
+
+.markdown-content code {
+    color: var(--man-amber);
+    font-size: 88%;
+}
+
+.markdown-content pre {
+    border-left: 2px solid var(--man-green);
+    border-radius: 4px;
+    background: var(--man-panel-alt);
+}
+
+.markdown-content pre code {
+    font-size: 13px;
+}
+
+.copy-button {
+    background: var(--man-panel);
+    color: var(--man-muted);
+    border: 1px solid var(--man-border);
+    border-radius: 4px;
+    font-weight: 400;
+}
+
+.copy-button:hover {
+    filter: none;
+    color: var(--man-green);
+    border-color: var(--man-green);
+}
+
+.markdown-content blockquote {
+    border-left: 2px solid var(--man-violet);
+    font-style: italic;
+}
+
+.markdown-content img {
+    border-radius: 4px;
+}
+
+.heading-anchor:hover {
+    color: var(--man-green);
+}
+
+/* ---------- Blog list ---------- */
+
+.blog-posts {
+    gap: 0;
+}
+
+.blog-post-preview,
+.blog-post-preview:hover {
+    background: transparent;
+    border: none;
+    border-bottom: 1px dashed var(--man-border);
+    border-radius: 0;
+    padding: 18px 0;
+}
+
+.blog-post-preview h3 {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.blog-post-preview h3 a {
+    color: var(--man-text);
+    text-decoration: none;
+}
+
+.blog-post-preview h3 a:hover {
+    color: var(--man-green);
+    text-decoration: none;
+}
+
+.blog-post-preview:hover h3 a::before {
+    content: "> ";
+    color: var(--man-green);
+}
+
+.blog-post-preview .post-meta time::before,
+.speaking-date::before,
+.speaking-location::before {
+    content: none;
+}
+
+.post-meta {
+    font-size: 12px;
+}
+
+.tag-icon {
+    display: none;
+}
+
+.post-tag::before {
+    content: "#";
+    opacity: 0.6;
+}
+
+.post-tag::after {
+    content: "  ";
+    white-space: pre;
+}
+
+.post-updated a {
+    color: var(--man-blue);
+}
+
+.load-more-button,
+.exclude-button {
+    background: transparent !important; /* blog.md sets an inline background */
+    color: var(--man-green) !important;
+    border: 1px solid var(--man-green) !important;
+    border-radius: 4px !important;
+    font-family: var(--font-mono);
+    font-weight: 500;
+}
+
+.load-more-button:hover,
+.exclude-button:hover {
+    filter: none;
+    background: var(--man-chip) !important;
+}
+
+.post-nav {
+    border-top: 1px solid var(--man-border);
+}
+
+.post-nav-link {
+    border-radius: 4px;
+    background: transparent;
+    font-size: 13px;
+}
+
+/* ---------- Cards: projects, talks, stats ---------- */
+
+.project-card,
+.pinned-repo,
+.featured-project,
+.speaking-item,
+.speaking-placeholder,
+.stat-card,
+.github-section,
+.exclude-status,
+.error,
+.external-content-error,
+.readme-error {
+    border-radius: 6px;
+}
+
+.speaking-item.upcoming {
+    border-left-width: 2px;
+}
+
+.project-visibility,
+.repo-visibility,
+.speaking-venue,
+.topic-tag {
+    background: transparent;
+    color: var(--man-muted);
+    border: 1px solid var(--man-border);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-weight: 400;
+}
+
+.speaking-type,
+.upcoming-badge {
+    background: var(--man-chip);
+    color: var(--man-violet);
+    border-radius: 4px;
+    font-family: var(--font-mono);
+    font-weight: 500;
+}
+
+.upcoming-badge {
+    color: var(--man-green);
+}
+
+.speaking-thumbnail .play-icon {
+    border-width: 1px;
+}
+
+.speaking-item.has-thumbnail:hover .play-icon {
+    color: var(--man-bg);
+}
+
+.speaking-thumbnail.is-placeholder .placeholder-text {
+    border-radius: 4px;
+}
+
+.project-name,
+.repo-name,
+.speaking-title a {
+    color: var(--man-blue);
+    text-decoration: none;
+}
+
+.project-name:hover,
+.repo-name:hover,
+.speaking-title a:hover {
+    color: var(--man-green);
+    text-decoration: underline;
+}
+
+.speaking-meta {
+    font-size: 13px;
+    min-width: 0;
+}
+
+.speaking-location {
+    overflow-wrap: anywhere;
+}
+
+.stat-number {
+    font-size: 24px;
+}
+
+/* ---------- Misc ---------- */
+
+::-webkit-scrollbar-thumb {
+    background: var(--man-border-strong);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--man-muted);
+}
+
+@media (max-width: 768px) {
+    .sidebar,
+    .main-content {
+        border-radius: 6px;
+    }
+
+    .tab-button {
+        padding: 4px 8px;
+    }
+}
