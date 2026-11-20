@@ -55,6 +55,9 @@ jobs:
         env:
           JEKYLL_ENV: production
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Code Search needs a real user PAT; the auto-generated GITHUB_TOKEN
+          # above gets rate-limited (HTTP 429) on the code_search endpoint.
+          FLEET_WRITING_GITHUB_TOKEN: ${{ secrets.FLEET_WRITING_GITHUB_TOKEN }}
           
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v5

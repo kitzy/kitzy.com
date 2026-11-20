@@ -45,7 +45,7 @@ module Jekyll
 
     def read_json(path)
       return nil unless File.exist?(path)
-      JSON.parse(File.read(path))
+      JSON.parse(File.read(path, encoding: 'UTF-8'))
     rescue => e
       Jekyll.logger.warn 'FleetWriting:', "reading #{path} failed (#{e.message})"
       nil
@@ -110,7 +110,12 @@ module Jekyll
         'Accept' => 'application/vnd.github+json',
         'User-Agent' => user_agent,
       }
-      token = ENV['GITHUB_TOKEN']
+      # The Code Search API needs a real user token: Actions' auto-generated
+      # GITHUB_TOKEN is tied to the github-actions app and consistently gets
+      # HTTP 429 from the code_search endpoint, so it falls back to
+      # FLEET_WRITING_GITHUB_TOKEN (a personal access token) first.
+      token = ENV['FLEET_WRITING_GITHUB_TOKEN']
+      token = ENV['GITHUB_TOKEN'] if token.nil? || token.empty?
       headers['Authorization'] = "Bearer #{token}" if token && !token.empty?
       headers
     end
