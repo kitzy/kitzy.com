@@ -4,9 +4,19 @@
     <meta charset="utf-8">
     <title>Redirecting...</title>
     <link rel="canonical" href="{{ page.redirect_url }}">
-    <meta http-equiv="refresh" content="0; url={{ page.redirect_url }}">
     <meta name="robots" content="noindex">
-    <script>window.location.replace("{{ page.redirect_url }}")</script>
+    <script>
+        (function () {
+            // Preserve incoming query string (e.g. LinkedIn/UTM tracking params) and hash.
+            var target = new URL({{ page.redirect_url | jsonify }}, window.location.href);
+            new URLSearchParams(window.location.search).forEach(function (value, key) {
+                if (!target.searchParams.has(key)) target.searchParams.append(key, value);
+            });
+            if (window.location.hash && !target.hash) target.hash = window.location.hash;
+            window.location.replace(target.toString());
+        })();
+    </script>
+    <noscript><meta http-equiv="refresh" content="0; url={{ page.redirect_url }}"></noscript>
 </head>
 <body>
     <h1>Redirecting...</h1>
